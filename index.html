@@ -11,8 +11,10 @@
   <style>
     :root { --bg:#0b0b0a; --panel:#151513; --text:#f5f0e7; --muted:#aaa49a; --line:#35312a; --gold:#d8b77a; --gold-bright:#f0d29b; --ink:#17130d; }
     * { box-sizing:border-box; }
-    html { scroll-behavior:smooth; }
-    body { margin:0; color:var(--text); background:var(--bg); font:16px/1.55 Manrope,sans-serif; }
+    html { scroll-behavior:smooth; scroll-padding-top:28px; }
+    body { margin:0; color:var(--text); background:#050504 url("cracks.svg") center top / cover fixed no-repeat; font:16px/1.55 Manrope,sans-serif; overscroll-behavior-y:none; -webkit-overflow-scrolling:touch; }
+    body:before { position:fixed; inset:0; z-index:-1; content:""; background:linear-gradient(90deg,#050504f2 0%,#050504d9 48%,#050504e8 100%); pointer-events:none; }
+    @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } * { animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; } }
     .wrap { width:min(1120px,calc(100% - 40px)); margin:auto; }
     .mono,.eyebrow { font-family:"DM Mono",monospace; letter-spacing:.04em; }
     .eyebrow { color:var(--gold); font-size:.72rem; text-transform:uppercase; }
@@ -94,6 +96,8 @@
     const confirmation = document.querySelector('#confirmation');
     const submitButton = document.querySelector('#submit-button');
     const status = document.querySelector('#form-status');
+    document.querySelector('#location')?.closest('.field')?.remove();
+    document.querySelector('label[for="project"]').textContent = 'Project name';
 
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
