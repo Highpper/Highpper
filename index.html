@@ -7,62 +7,64 @@
   <title>HIGHPPER | Private Website Requests</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
   <style>
-    :root { --bg:#0b1012; --panel:#151c1e; --text:#f5f2ec; --muted:#a4abad; --line:#2b3435; --lime:#c8f47e; --orange:#ff9f6e; }
+    :root { --bg:#0b0b0a; --panel:#151513; --text:#f5f0e7; --muted:#aaa49a; --line:#35312a; --gold:#d8b77a; --gold-bright:#f0d29b; --ink:#17130d; }
     * { box-sizing:border-box; }
     html { scroll-behavior:smooth; }
     body { margin:0; color:var(--text); background:var(--bg); font:16px/1.55 Manrope,sans-serif; }
     .wrap { width:min(1120px,calc(100% - 40px)); margin:auto; }
     .mono,.eyebrow { font-family:"DM Mono",monospace; letter-spacing:.04em; }
-    .eyebrow { color:var(--lime); font-size:.72rem; text-transform:uppercase; }
+    .eyebrow { color:var(--gold); font-size:.72rem; text-transform:uppercase; }
     header { display:flex; justify-content:space-between; align-items:center; padding:26px 0; border-bottom:1px solid var(--line); }
-    .brand { color:var(--text); font-weight:800; text-decoration:none; }
-    .brand:before { display:inline-flex; align-items:center; justify-content:center; width:22px; height:22px; margin-right:10px; border:2px solid var(--lime); border-radius:50%; color:var(--lime); vertical-align:-5px; content:"H"; font-size:.72rem; font-weight:800; line-height:1; }
+    .brand { color:var(--text); font-size:.94rem; font-weight:800; letter-spacing:.08em; text-decoration:none; }
+    .brand:before { display:inline-flex; align-items:center; justify-content:center; width:25px; height:25px; margin-right:11px; border:1px solid var(--gold); border-radius:50%; color:var(--gold-bright); vertical-align:-7px; content:"H"; font-family:"Playfair Display",serif; font-size:.86rem; font-weight:700; line-height:1; }
     header .mono { color:var(--muted); font-size:.68rem; }
     .hero { display:grid; grid-template-columns:1.25fr .75fr; gap:80px; align-items:center; padding:105px 0 90px; }
     h1,h2,p { margin-top:0; }
-    h1 { max-width:760px; margin-bottom:25px; font-size:clamp(3.1rem,7vw,6.6rem); line-height:.98; letter-spacing:-.075em; }
+    h1 { max-width:760px; margin-bottom:29px; font-family:"Playfair Display",serif; font-size:clamp(3.2rem,7vw,6.8rem); font-weight:600; line-height:.98; letter-spacing:-.055em; }
     h2 { margin-bottom:16px; font-size:clamp(2.3rem,4vw,4rem); line-height:1; letter-spacing:-.06em; }
     .hero-copy { max-width:560px; color:#d4d9d7; font-size:1.1rem; }
-    .hero-note { padding:20px 0 0 24px; border-left:1px solid var(--lime); color:var(--muted); font-size:.88rem; }
+    .hero-note { padding:24px 0 0 26px; border-left:1px solid var(--gold); color:var(--muted); font-size:.88rem; }
     .hero-note strong { display:block; margin-bottom:8px; color:var(--text); }
     .actions { display:flex; align-items:center; gap:18px; margin-top:32px; }
-    .button { display:inline-flex; justify-content:center; align-items:center; min-height:52px; padding:0 22px; border:1px solid var(--lime); color:#17220f; background:var(--lime); font:700 .84rem Manrope,sans-serif; text-decoration:none; cursor:pointer; transition:transform .2s,background .2s; }
-    .button:hover { transform:translateY(-2px); background:#ddffa0; }
+    .button { display:inline-flex; justify-content:center; align-items:center; min-height:55px; padding:0 25px; border:1px solid var(--gold); color:var(--ink); background:var(--gold); font:700 .78rem Manrope,sans-serif; letter-spacing:.02em; text-decoration:none; cursor:pointer; box-shadow:0 12px 28px #00000055; transition:transform .25s,background .25s,box-shadow .25s; }
+    .button:hover { transform:translateY(-3px); background:var(--gold-bright); box-shadow:0 16px 34px #00000077; }
     .microcopy { color:var(--muted); font-size:.76rem; }
     .trust { border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
     .trust-grid { display:grid; grid-template-columns:repeat(4,1fr); }
     .trust-item { min-height:125px; padding:26px 20px 20px 0; border-right:1px solid var(--line); }
     .trust-item + .trust-item { padding-left:20px; }
     .trust-item:last-child { border:0; }
-    .trust-item b { display:block; margin-bottom:10px; color:var(--lime); font:500 .7rem "DM Mono",monospace; }
+    .trust-item b { display:block; margin-bottom:10px; color:var(--gold); font:500 .7rem "DM Mono",monospace; }
     .trust-item span { color:#d4d9d7; font-size:.88rem; }
     .request { display:grid; grid-template-columns:.75fr 1.25fr; gap:90px; padding:120px 0; }
     .muted { color:var(--muted); font-size:.92rem; }
     .form-intro { margin:0 0 24px; color:var(--muted); font-size:.84rem; }
-    .form-panel { padding:34px; border:1px solid var(--line); background:#151c1ed9; }
+    .form-panel { padding:38px; border:1px solid var(--line); background:var(--panel); box-shadow:0 25px 70px #00000055; }
     .form-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
     .field { display:flex; flex-direction:column; gap:8px; }
     .full { grid-column:1/-1; }
     label { color:#d4d9d7; font-size:.78rem; }
-    label span { color:var(--orange); }
-    input,textarea { width:100%; padding:14px 15px; border:1px solid #3a4445; border-radius:0; outline:0; color:var(--text); background:#080d0e; font:.88rem Manrope,sans-serif; }
+    label span { color:var(--gold); }
+    input,textarea,select { width:100%; padding:15px 16px; border:1px solid #484137; border-radius:0; outline:0; color:var(--text); background:#0c0c0b; font:.84rem Manrope,sans-serif; transition:border-color .25s,background .25s; }
+    select { appearance:none; background-image:linear-gradient(45deg,transparent 50%,var(--gold) 50%),linear-gradient(135deg,var(--gold) 50%,transparent 50%); background-position:calc(100% - 18px) 20px,calc(100% - 13px) 20px; background-size:5px 5px,5px 5px; background-repeat:no-repeat; }
     textarea { min-height:125px; resize:vertical; }
-    input:focus,textarea:focus { border-color:var(--lime); }
+    input:focus,textarea:focus,select:focus { border-color:var(--gold); background:#11110f; }
     .privacy { display:flex; gap:10px; align-items:center; margin:27px 0 18px; color:var(--muted); font-size:.78rem; }
-    .privacy:before { width:7px; height:7px; flex:0 0 7px; border-radius:50%; content:""; background:var(--lime); }
+    .privacy:before { width:7px; height:7px; flex:0 0 7px; border-radius:50%; content:""; background:var(--gold); box-shadow:0 0 12px #d8b77a88; }
     .form-panel .button { width:100%; }
-    .confirmation { display:none; padding:22px; border:1px solid var(--lime); color:var(--lime); background:#172612; }
+    .confirmation { display:none; padding:24px; border:1px solid var(--gold); color:var(--gold-bright); background:#211b11; }
     .confirmation.show { display:block; }
     .security { padding:90px 0; border-top:1px solid var(--line); background:#101719b3; }
     .security-head { display:flex; justify-content:space-between; gap:40px; align-items:end; margin-bottom:45px; }
     .security-head p { max-width:380px; margin:0; color:var(--muted); font-size:.88rem; }
     .security-grid,.plan { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); }
-    .security-card,.plan-item { padding:28px; background:var(--panel); }
+    .security-card,.plan-item { padding:31px; background:var(--panel); transition:background .25s,transform .25s; }
+    .security-card:hover,.plan-item:hover { background:#1c1a16; transform:translateY(-2px); }
     .security-card { min-height:205px; }
-    .number { color:var(--orange); font:.75rem "DM Mono",monospace; }
-    h3 { margin:25px 0 10px; font-size:1rem; }
+    .number { color:var(--gold); font:.75rem "DM Mono",monospace; }
+    h3 { margin:25px 0 10px; font-family:"Playfair Display",serif; font-size:1.18rem; font-weight:600; }
     .security-card p,.plan-item p { margin:0; color:var(--muted); font-size:.82rem; }
     .plan { grid-template-columns:1fr 1fr; margin-top:1px; }
     .plan-item h3 { margin:10px 0 8px; }
@@ -75,7 +77,7 @@
 <body>
   <header class="wrap"><a class="brand" href="#top">HIGHPPER</a><span class="mono">A QUIET WAY TO GET STARTED</span></header>
   <main id="top">
-    <section class="wrap hero"><div><p class="eyebrow">01 / Start here</p><h1>Your website request, handled privately.</h1><p class="hero-copy">Send your details and we’ll prepare your site. You’ll be notified when it’s ready.</p><div class="actions"><a class="button" href="#request">Submit Your Request &nbsp;-></a><span class="microcopy">Takes less than 2 minutes.</span></div></div><div class="hero-note"><strong>Your project stays between us.</strong>No public queue, no shared dashboard, no guessing about who can see what you send.</div></section>
+    <section class="wrap hero"><div><p class="eyebrow">01 / Start here</p><h1>Your website request, handled privately.</h1><p class="hero-copy">Send your details and we’ll prepare your site. You’ll be notified when it’s ready.</p></div><div class="hero-note"><strong>Your project stays between us.</strong>No public queue, no shared dashboard, no guessing about who can see what you send.</div></section>
     <section class="trust" aria-label="Privacy commitments"><div class="wrap trust-grid"><div class="trust-item"><b>01 / PROTECTED</b><span>Your information is encrypted.</span></div><div class="trust-item"><b>02 / PRIVATE</b><span>Only the owner can access requests.</span></div><div class="trust-item"><b>03 / QUIET</b><span>No public listings of your order.</span></div><div class="trust-item"><b>04 / CLEAR</b><span>Clear status updates - no guessing.</span></div></div></section>
     <section class="wrap request" id="request"><div><p class="eyebrow">02 / Your project</p><h2>Tell us what you’re building.</h2><p class="muted">A few useful details are enough to get the work moving. Add what matters, skip what doesn’t.</p></div><div class="form-panel"><form id="request-form"><p class="form-intro">What kind of website are you looking for? All websites have associated costs, so please tell us whether you’re considering a premium or budget-friendly price range.</p><div class="form-grid"><div class="field full"><label for="email">Email <span>*</span></label><input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required></div><div class="field"><label for="project">Order / project name</label><input id="project" name="project" placeholder="A name for this project"></div><div class="field"><label for="url">Website URL</label><input id="url" name="url" type="url" placeholder="https://example.com"></div><div class="field full"><label for="website-type">What kind of website do you want? <span>*</span></label><input id="website-type" name="website-type" placeholder="For example, portfolio, business, shop, or blog" required></div><div class="field"><label for="budget">Price range <span>*</span></label><select id="budget" name="budget" required><option value="">Choose a range</option><option value="Premium">Premium</option><option value="Budget-friendly">Budget-friendly</option></select></div><div class="field full"><label for="needs">What do you need? <span>*</span></label><textarea id="needs" name="needs" placeholder="Tell us about the site you have in mind..." required></textarea></div><div class="field full"><label for="brand">Brand details</label><input id="brand" name="brand" placeholder="Logo, colors, useful links"></div></div><div class="privacy">This request is private. Only the owner can view it.</div><button class="button" type="submit">Send Request &nbsp;-></button></form><div class="confirmation" id="confirmation" role="status" aria-live="polite">We’ll inform you when your website is ready.</div></div></section>
     <section class="security"><div class="wrap"><div class="security-head"><div><p class="eyebrow">03 / How privacy works</p><h2>Private by design.</h2></div><p>Requests are stored privately and access is limited to the owner. There is no public order list to browse.</p></div><div class="security-grid"><article class="security-card"><span class="number">01</span><h3>Encrypted in transit</h3><p>Your request is encrypted in transit using HTTPS, so it stays protected as it travels to us.</p></article><article class="security-card"><span class="number">02</span><h3>Protected storage</h3><p>Requests are stored privately. Only the owner can view and manage incoming requests.</p></article><article class="security-card"><span class="number">03</span><h3>Owner access only</h3><p>Only the owner can decrypt and view your request. No shared credentials are used.</p></article></div><div class="plan"><article class="plan-item"><span class="eyebrow">Option A / Standard security</span><h3>HTTPS + protected storage</h3><p>Use TLS, server-side access control, a single admin login with strong 2FA, and KMS-backed encryption for sensitive fields at rest.</p></article><article class="plan-item"><span class="eyebrow">Option B / True E2EE</span><h3>Client-side encryption</h3><p>Encrypt form data in the browser using the owner’s public key. Only the owner’s private key can decrypt it, so the server cannot read the content.</p></article></div></div></section>
