@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <filter id="goldGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3.2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#725323"/>
+      <stop offset=".42" stop-color="#f1d28d"/>
+      <stop offset=".65" stop-color="#9b702c"/>
+      <stop offset="1" stop-color="#f7dda0"/>
+    </linearGradient>
+    <linearGradient id="goldDim" x1="0" y1="0" x2="1" y2="0">
+      <stop stop-color="#8b642b" stop-opacity=".35"/>
+      <stop offset=".5" stop-color="#edc978" stop-opacity=".9"/>
+      <stop offset="1" stop-color="#6d4d1e" stop-opacity=".25"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="#050504"/>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round" filter="url(#goldGlow)">
+    <g stroke="url(#gold)" stroke-width="2.2">
+      <path d="M-30 108 C110 134 149 92 235 156 S352 245 431 201 S533 116 594 171 693 306 781 260 889 129 968 188 1079 283 1160 224 1260 79 1354 132 1492 265 1630 190"/>
+      <path d="M180 -35 C228 72 211 115 273 177 S347 284 301 361 207 462 253 554 353 657 323 744 243 844 308 934 414 1002 451 1050"/>
+      <path d="M1007 -25 C954 85 984 139 923 214 S822 307 855 384 971 499 938 583 811 686 845 758 942 835 902 1017"/>
+      <path d="M1570 61 C1458 101 1412 167 1438 245 S1541 331 1481 405 1351 474 1386 558 1518 636 1460 722 1328 796 1365 900 1454 960 1524 1030"/>
+      <path d="M-18 802 C91 770 145 705 235 743 S386 859 477 814 554 692 642 727 750 858 842 819 915 715 1001 746 1079 850 1173 812 1240 722 1311 762"/>
+    </g>
+    <g stroke="url(#goldDim)" stroke-width="1.15" opacity=".8">
+      <path d="M232 155 L193 233 112 275 M233 156 L316 132 365 62 M431 201 L470 292 530 335 M594 171 L642 101 704 80 M781 260 L760 361 680 414 M968 188 L1005 106 1082 77 M1160 224 L1208 302 1286 333 M1354 132 L1310 57 1255 12"/>
+      <path d="M273 177 L365 210 416 279 M301 361 L219 337 142 371 M253 554 L177 598 101 571 M323 744 L393 771 454 846 M308 934 L246 965 180 938"/>
+      <path d="M923 214 L832 188 775 123 M855 384 L766 433 702 414 M938 583 L1010 623 1069 697 M845 758 L762 798 704 863 M902 1017 L978 949 1030 881"/>
+      <path d="M1438 245 L1352 286 1279 263 M1481 405 L1561 453 1608 515 M1386 558 L1292 583 1230 645 M1460 722 L1536 768 1601 749 M1365 900 L1282 940 1231 1002"/>
+      <path d="M235 743 L191 670 212 602 M477 814 L512 891 579 930 M642 727 L600 656 625 582 M842 819 L795 894 734 940 M1001 746 L1054 679 1117 653 M1173 812 L1222 872 1279 898"/>
+    </g>
+  </g>
+  <g fill="#f7dda0" opacity=".75">
+    <circle cx="431" cy="201" r="2"/><circle cx="781" cy="260" r="1.8"/><circle cx="1160" cy="224" r="2"/><circle cx="323" cy="744" r="1.6"/><circle cx="1001" cy="746" r="1.8"/><circle cx="1438" cy="245" r="1.7"/>
+  </g>
+</svg>
