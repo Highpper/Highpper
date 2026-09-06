@@ -94,8 +94,14 @@
   <script>
     const form = document.querySelector('#request-form');
     const confirmation = document.querySelector('#confirmation');
-    const submitButton = document.querySelector('#submit-button');
-    const status = document.querySelector('#form-status');
+    const submitButton = document.querySelector('#submit-button') || form.querySelector('button[type="submit"]');
+    const status = document.querySelector('#form-status') || document.createElement('div');
+    if (!status.parentElement) {
+      status.className = 'form-status';
+      status.setAttribute('role', 'status');
+      status.setAttribute('aria-live', 'polite');
+      form.append(status);
+    }
     document.querySelector('#location')?.closest('.field')?.remove();
     document.querySelector('label[for="project"]').textContent = 'Project name';
 
