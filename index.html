@@ -64,7 +64,7 @@
     .form-panel .button { width:100%; }
     .confirmation { display:none; padding:24px; border:1px solid var(--gold); color:var(--gold-bright); background:#211b11; }
     .confirmation.show { display:block; }
-    .page-loader { position:fixed; inset:0; z-index:100; display:grid; place-items:center; background:#050504; transition:opacity .7s ease,visibility .7s ease; }
+    .page-loader { position:fixed; inset:0; z-index:100; display:grid; place-items:center; background:#050504; transition:opacity 1.5s ease,visibility 1.5s ease; }
     .page-loader.is-hidden { opacity:0; visibility:hidden; pointer-events:none; }
     .loader-mark { display:grid; place-items:center; width:72px; height:72px; border:1px solid var(--gold); border-radius:50%; color:var(--gold-bright); font:600 2rem "Playfair Display",serif; box-shadow:0 0 45px #d8b77a33; animation:loaderPulse 1.8s ease-in-out infinite; }
     @keyframes loaderPulse { 0%,100% { transform:scale(.96); opacity:.65; } 50% { transform:scale(1); opacity:1; } }
@@ -103,8 +103,7 @@
     const submitButton = document.querySelector('#submit-button') || form.querySelector('button[type="submit"]');
     const status = document.querySelector('#form-status') || document.createElement('div');
     const hideLoader = () => pageLoader.classList.add('is-hidden');
-    window.addEventListener('load', hideLoader, { once: true });
-    window.setTimeout(hideLoader, 1800);
+    window.setTimeout(hideLoader, 3000);
     if (!status.parentElement) {
       status.className = 'form-status';
       status.setAttribute('role', 'status');
