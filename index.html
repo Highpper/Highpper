@@ -127,19 +127,20 @@
       if (!form.reportValidity()) return;
 
       const data = new FormData(form);
+      const fields = [
+        ['Name', data.get('name')],
+        ['Email', data.get('email')],
+        ['Preferred contact', data.get('contact')],
+        ['Project name', data.get('project')],
+        ['Project type', data.get('project-type')],
+        ['Target budget', data.get('budget')],
+        ['Style and scope', data.get('needs')],
+        ['Brand details', data.get('brand')]
+      ];
       const subject = data.get('project') || `New HIGHPPER request from ${data.get('name')}`;
-      const body = [
-        `Name: ${data.get('name')}`,
-        `Email: ${data.get('email')}`,
-        `Preferred contact: ${data.get('contact') || 'Not provided'}`,
-        `Project name: ${data.get('project') || 'Not provided'}`,
-        `Project type: ${data.get('project-type')}`,
-        `Target budget: ${data.get('budget')}`,
-        `Style and scope:\n${data.get('needs')}`,
-        `Brand details:\n${data.get('brand') || 'Not provided'}`
-      ].join('\n\n');
-      const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=highpper1@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      const gmailWindow = window.open(gmailUrl, '_blank', 'noopener,noreferrer');
+      const body = fields.map(([label, value]) => `${label}:\n${value || 'Not provided'}`).join('\n\n');
+      const gmailUrl = `https://mail.google.com/mail/u/0/?view=cm&fs=1&to=highpper1@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      const gmailWindow = window.open(gmailUrl, '_blank');
 
       if (!gmailWindow) {
         status.textContent = 'Gmail was blocked by your browser. Please allow pop-ups and try again.';
