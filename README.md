@@ -20,7 +20,7 @@ npx wrangler secret put FROM_EMAIL
 npx wrangler secret put NOTIFICATION_WEBHOOK_URL
 ```
 
-`FROM_EMAIL` must be an email address from a domain verified in Resend. `NOTIFICATION_WEBHOOK_URL` is optional. Every valid form submission is stored in D1, then the Worker sends the full request directly to `highpper1@gmail.com` through Resend. The visitor's browser does not open Gmail, an email app, or a compose window. Keep the Resend key and webhook URL out of the HTML.
+`FROM_EMAIL` must be an email address from a domain verified in Resend. `NOTIFICATION_WEBHOOK_URL` is optional for the Worker API. The public form currently opens a pre-filled Gmail compose window addressed to `highpper1@gmail.com`; the visitor presses Send in Gmail to finish. Keep the Resend key and webhook URL out of the HTML.
 
 5. Deploy:
 
@@ -28,7 +28,7 @@ npx wrangler secret put NOTIFICATION_WEBHOOK_URL
 npx wrangler deploy
 ```
 
-The public form posts to `/api/requests`.
+The public form opens Gmail with the completed request. The Worker API at `/api/requests` remains available for a future server-side submission flow.
 
 ## Security model
 

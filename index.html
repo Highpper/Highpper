@@ -122,30 +122,34 @@
       contactInput.replaceWith(contactSelect);
     }
 
-    form.addEventListener('submit', async (event) => {
+    form.addEventListener('submit', (event) => {
       event.preventDefault();
       if (!form.reportValidity()) return;
 
-      submitButton.disabled = true;
-      submitButton.setAttribute('aria-busy', 'true');
-      status.textContent = 'Sending your private request...';
-      status.className = 'form-status';
+      const data = new FormData(form);
+      const subject = data.get('project') || `New HIGHPPER request from ${data.get('name')}`;
+      const body = [
+        `Name: ${data.get('name')}`,
+        `Email: ${data.get('email')}`,
+        `Preferred contact: ${data.get('contact') || 'Not provided'}`,
+        `Project name: ${data.get('project') || 'Not provided'}`,
+        `Project type: ${data.get('project-type')}`,
+        `Target budget: ${data.get('budget')}`,
+        `Style and scope:\n${data.get('needs')}`,
+        `Brand details:\n${data.get('brand') || 'Not provided'}`
+      ].join('\n\n');
+      const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=highpper1@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      const gmailWindow = window.open(gmailUrl, '_blank', 'noopener,noreferrer');
 
-      try {
-        const response = await fetch('/api/requests', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(Object.fromEntries(new FormData(form)))
-        });
-        if (!response.ok) throw new Error('Request could not be sent');
-        form.hidden = true;
-        confirmation.classList.add('show');
-      } catch (error) {
-        submitButton.disabled = false;
-        submitButton.removeAttribute('aria-busy');
-        status.textContent = 'Something went wrong. Please try again or contact HIGHPPER directly.';
+      if (!gmailWindow) {
+        status.textContent = 'Gmail was blocked by your browser. Please allow pop-ups and try again.';
         status.className = 'form-status error';
+        return;
       }
+
+      form.hidden = true;
+      confirmation.textContent = 'Your request is ready in Gmail. Press Send there to complete it.';
+      confirmation.classList.add('show');
     });
   </script>
 </body>
