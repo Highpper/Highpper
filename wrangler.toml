@@ -1,0 +1,16 @@
+name = "highpper-requests"
+main = "worker.js"
+compatibility_date = "2026-09-06"
+
+[assets]
+directory = "."
+exclude = ["worker.js", "schema.sql", "wrangler.toml", "README.md"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "highpper-requests"
+database_id = "REPLACE_WITH_D1_DATABASE_ID"
+
+[vars]
+# Set RESEND_API_KEY, FROM_EMAIL, and optionally
+# NOTIFICATION_WEBHOOK_URL with `wrangler secret put`.
